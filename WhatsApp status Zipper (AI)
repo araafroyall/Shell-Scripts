@@ -1,0 +1,36 @@
+# Whatsapp All Status in single Zip Dynamically
+# This script is made by AraafRoyall
+
+# Generate a random number between 100 and 999
+xyz=$((RANDOM % 900 + 100))
+
+# Source directory where the WhatsApp statuses are stored
+ST="/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/.Statuses"
+
+# Directory path for WhatsApp application
+DIR="/data/data/com.whatsapp"
+
+# Removing existing files in /data/local/tmp
+rm -rf /data/local/tmp/*
+
+# Check if the WhatsApp directory exists
+if [ -d "$DIR" ]; then
+    echo "Making temp directory"
+    mkdir -p /data/local/tmp
+    echo "Done..."
+
+    echo "Making fake file to prevent error."
+    touch $ST/testx.jpg
+    touch /storage/emulated/0/Android/media/com.fmwhatsapp/FMWhatsApp/Media/.Statuses/testxx.jpg
+    echo "Done..."
+
+    echo "Moving statuses to temp directory"
+    cp $ST/* /storage/emulated/0/A/WorkFolder/temp/
+    cp /storage/emulated/0/Android/media/com.fmwhatsapp/FMWhatsApp/Media/.Statuses/* /storage/emulated/0/A/WorkFolder/temp/
+    echo "Done....."
+
+    echo "Cleaning fake created file"
+    rm -rf /storage/emulated/0/A/WorkFolder/temp/testx*
+    echo "Done..."
+
+    echo "Zipping the statuses into a single file and moving to pre-saved folder"
