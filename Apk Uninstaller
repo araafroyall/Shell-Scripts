@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# List of package names to uninstall
+packages=(
+    "com.miui.analytics"
+    "com.android.browser"
+    "com.miui.calculator"
+    "com.android.calendar"
+    "com.miui.compass"
+    "com.android.email"
+    "com.miui.fmradio"
+    "com.miui.bugreport"
+    "com.mipay.wallet.in"
+    "com.android.browser"
+    "com.xiaomi.midrop"
+    "com.miui.video"
+    "com.mipay.wallet.in"
+    "com.duokan.phone.remotecontroller"
+    "com.miui.virtualsim"
+    "com.miui.player"
+    "com.miui.notes"
+    "com.android.soundrecorder"
+    "com.xiaomi.scanner"
+    "com.miui.weather2"
+)
+
+# Uninstall packages
+for package in "${packages[@]}"
+do
+    adb shell pm uninstall -k --user 0 "$package"
+done
