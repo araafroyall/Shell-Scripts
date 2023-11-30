@@ -1,0 +1,16 @@
+#!/bin/bash
+
+
+cd /yourDirectory
+count=1
+for file in *.mp4; do
+    if [ -f "$file" ]; then
+        new_name="$count.FORMAT"
+        mv "$file" "$new_name"
+        echo "Renamed '$file' to '$new_name'"
+        ((count++))
+    fi
+done
+
+# Replace .FORMAT with your formate
+# you can also set count to start as per choice
