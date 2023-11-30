@@ -1,0 +1,21 @@
+#!/bin/bash 
+# Created By AraafRoyall
+
+##########################################
+# Input Command List
+CMD1="$1" 
+CMD2="$2"
+
+# (optional)
+            print $CMD1
+            print $CMD2
+
+# Actions 
+
+if [ "$CMD1" == "XXX" ]; then 
+      # Action for 1st command 
+else 
+      # Action for not setisfying 1st command
+fi
+
+# and so on conditions.  .......
