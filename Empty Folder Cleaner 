@@ -1,0 +1,1 @@
+find /path -depth -type d -empty -delete
