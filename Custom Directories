@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# custom directories maker
+# Made by AraafRoyall
+echo Initializing....
+
+# List of directories to be created
+directories=(
+    "/sdcard/Pictures/DCIM"
+    "/sdcard/Pictures/downloaded"
+    "/sdcard/Pictures/Instagram"
+    "/sdcard/Pictures/NewPipe"
+    "/storage/emulated/0/A/Apps"
+    "/storage/emulated/0/A/Apps/AppsData"
+    "/storage/emulated/0/A/Apps/NeoBackup"
+    "/storage/emulated/0/A/ToUpload"
+    "/storage/emulated/0/A/WorkFolder"
+    "/storage/emulated/0/A/Zips"
+    "/storage/emulated/0/A/A"
+    "/storage/emulated/0/A"
+    "/sdcard/Pictures/Instagram/Videos"
+)
+
+echo "Making Directories..."
+
+for dir in "${directories[@]}"; do
+    if [ -d "$dir" ]; then
+        echo "$dir already exists. Skipping..."
+    else
+        mkdir -p "$dir"
+        echo "Created $dir"
+    fi
+done
+
+echo "Done."
