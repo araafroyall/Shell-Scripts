@@ -1,0 +1,16 @@
+#!/bin/bash
+# Created by AraafRoyall
+
+################################
+
+#source directory where the files are located
+source_directory="/path/to/source/directory"
+
+# Don't Modify Below 
+extensions=($(find "$source_directory" -type f | awk -F. '{print $NF}' | sort -u))
+
+for extension in "${extensions[@]}"
+do
+    mkdir -p "$source_directory/$extension"
+    find "$source_directory" -type f -name "*.$extension" -exec mv {} "$source_directory/$extension/" \;
+done
