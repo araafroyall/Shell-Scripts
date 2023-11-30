@@ -1,0 +1,36 @@
+# Whatsapp All Status in single Zip Dynamically
+
+#This script is made by AraafRoyall
+
+xyz=$((RANDOM % 900 + 100))
+
+ST="/storage/emulated/0/Android/media/com.whatsapp/WhatsApp/Media/.Statuses"
+
+DIR="/data/data/com.whatsapp"
+
+
+
+if [ -d "$DIR" ]; then
+   print making temp directory
+mkdir /storage/emulated/0/A/WorkFolder/temp
+print Done...
+
+print making fake file to prevent error.
+touch $ST/testx.jpg
+touch /storage/emulated/0/Android/media/com.fmwhatsapp/FMWhatsApp/Media/.Statuses/testxx.jpg
+print Done...
+
+
+print moving statuses to temp directory
+cp $ST/* /storage/emulated/0/A/WorkFolder/temp/
+cp /storage/emulated/0/Android/media/com.fmwhatsapp/FMWhatsApp/Media/.Statuses/* /storage/emulated/0/A/WorkFolder/temp/
+print Done.....
+
+
+print Cleaning fake created file 
+rm -rf /storage/emulated/0/A/WorkFolder/temp/testx*
+print Done...
+
+print Zipping the statuses into a single file and moving to presaved folder 
+print .....
+print .....
