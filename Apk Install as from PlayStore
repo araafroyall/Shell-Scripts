@@ -1,0 +1,60 @@
+#Installation script by AraafRoyall
+
+
+#########################################
+
+
+ case $1 in
+     --number|$1)
+         if [ "$(whoami)" = "root" ]; then
+
+
+if [ -d "/data/local/tmp" ]; then
+    print ..Initialising...
+ else
+   print Making Temporary Directory 
+    mkdir /data/local/tmp
+   print Done...
+   print ..Initialising...
+fi
+
+
+
+if [ -f "$1" ]; then
+    print ..Starting Process..
+ else
+    print 
+    print  
+    print  No .apk Found 
+    print  
+    print   
+    print  Enter with valid path of apk file
+    print [Example : inst /sdcard/base.apk]
+    print 
+    print   
+    exit 1
+fi
+
+
+
+            print making temporary setup
+           rm -rf /data/local/tmp/*
+           cp /$1 /data/local/tmp/base.apk
+           print Done...
+            print Installing.....
+            pm install --user 0 -i "com.android.vending" -r "/data/local/tmp/base.apk"
+            print Processed Successfully.
+           print removing temporary created files 
+           rm -rf /data/local/tmp/*
+           print All Action Done....
+           print Done... 
+else
+    print [*] Permission denied , Please use superuser 
+fi
+
+             
+         ;;
+     *)
+        print Please enter valid parameter 
+        ;;
+esac
