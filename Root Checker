@@ -1,0 +1,9 @@
+#Created by AraafRoyall
+
+# Check if the device has root access
+if [ "$(id -u)" != "0" ]; then
+    echo "Root Acess denied , use superuser"
+    exit 1
+fi
+
+# write your script below 
