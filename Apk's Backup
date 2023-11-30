@@ -1,0 +1,36 @@
+#!/system/bin/sh 
+  
+ ######################## 
+  
+ # DESCRIPTION: 
+ # Backup installed APK files 
+ # 
+ # USAGE: 
+ #   backup-apk-file.sh [--ignore-system-apps] [--destination=PATH] 
+  
+ # 
+ # NOTE: Run this script as root to backup all APK files 
+ # 
+  
+ ######################################### 
+  
+ backup_system_apps=true 
+ backup_location=$EXTERNAL_STORAGE/apk_files 
+  
+ for i in "$@" 
+  
+ do 
+  
+   case $i in 
+  
+     --ignore-system-apps) 
+  
+             backup_system_apps=false            shift 
+  
+           ;; 
+  
+           -d|--destination) 
+  
+             backup_location="${i#*=}" 
+  
+             shift 
