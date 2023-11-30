@@ -1,0 +1,21 @@
+#!/system/bin/sh
+#Created by AraafRoyall
+# Change Accordingly
+##############################
+
+# Step 1: Find the last captured screenshot
+last_screenshot=$(ls -t /sdcard/Pictures/Screenshots | grep -E '\.(png|jpg)$' | head -n 1)
+
+# Check if there are any screenshots
+if [ -z "$last_screenshot" ]; then
+  echo "No screenshots found in /sdcard/Pictures/Screenshots."
+  exit 1
+fi
+
+
+# Step 2: Move the screenshot to the new location
+mkdir -p /data/media/10/Pictures/Screenshots
+mv "/sdcard/Pictures/Screenshots/$last_screenshot" "/data/media/10/Pictures/Screenshots"
+
+# Step 3: Verify the move
+echo "Screenshot moved to /sdcard/screenshot/ successfully:"
