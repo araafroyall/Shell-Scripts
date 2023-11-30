@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Generate a 4-digit random number
+X=$((RANDOM % 9000 + 1000))
+
+# Print the random number
+echo "Random Number: $X"
+
+
+# configure as per your need
+
+# if you want to increase digit just increase value 9000 to +0... also increase 1000 to +0.... respectively for every successive digit 
