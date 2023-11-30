@@ -1,0 +1,27 @@
+#!/bin/bash
+# Script Created by AraafRoyall
+# Dont modify any single word 
+
+##################################
+
+echo "Welcome to the Bulk File Renamer!"
+echo -n "Enter the directory path: "
+read directory
+cd "$directory"
+echo -n "Enter the file format without dot(.) (e.g., mp4): "
+read format
+echo -n "Enter the starting count: "
+read count
+
+for file in *."$format"; do
+    if [ -f "$file" ]; then
+        new_name="$count.$format"
+        mv "$file" "$new_name"
+        echo "Renamed '$file' to '$new_name'"
+        ((count++))
+    fi
+done
+
+echo "File renaming completed!"
+
+###################################
