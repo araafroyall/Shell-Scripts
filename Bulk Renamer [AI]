@@ -6,11 +6,14 @@
 
 echo "Welcome to the Bulk File Renamer!"
 echo -n "Enter the directory path: "
+print 
 read directory
 cd "$directory"
 echo -n "Enter the file format without dot(.) (e.g., mp4): "
+print 
 read format
 echo -n "Enter the starting count: "
+print 
 read count
 
 for file in *."$format"; do
@@ -23,5 +26,3 @@ for file in *."$format"; do
 done
 
 echo "File renaming completed!"
-
-###################################
