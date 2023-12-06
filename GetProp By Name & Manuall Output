@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Replace "NAME" with the property name you want to check
+
+PROPERTY_VALUE=$(getprop NAME)
+
+# Check the value and print the corresponding message
+if [ "$PROPERTY_VALUE" = "XYZ" ]; then
+    echo "ABC"
+else
+    echo "The value is not XYZ"
+fi
+
+
+
+# ••••••••••••••••••••••••••••••••••••••••
+
+# Short Script
+
+#!/bin/sh
+
+[ "$(getprop NAME)" = "XYZ" ] && echo "OUTPUT" || echo "Else OUTPUT"
