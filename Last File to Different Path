@@ -1,0 +1,21 @@
+#!/system/bin/sh
+#Created by AraafRoyall
+##############################
+
+source="/PATH"
+destination="/PATH"
+format="png"
+
+# •••••••••••••••••••••••••••••••••••••••••••••
+
+lf=$(ls -t "$source" | grep -E "\.($format)$" | head -n 1)
+
+if [ -z "$lf" ]; then
+  echo "No $format files found in $source."
+  exit 1
+fi
+
+mkdir -p "$destination"
+mv "$source/$lf" "$destination"
+
+echo "$format file moved to $destination successfully."
