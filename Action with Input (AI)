@@ -1,0 +1,14 @@
+#!/system/bin/sh
+# Created By AraafRoyall
+
+CMD1="$1"
+
+if [ "$CMD1" == "Condition_1" ]; then 
+    echo "Action 1"
+elif [ "$CMD1" == "Condition_2" ]; then 
+    echo "Action 2"
+elif [ "$CMD1" == "Condition_3" ]; then 
+    echo "Action 3"
+else 
+    echo "No matching condition found for CMD1"
+fi
