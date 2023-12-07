@@ -1,0 +1,10 @@
+#!/system/bin/sh
+
+# Check if ADB is available and there is a connected device
+if [ "$(which adb)" != "" ] && [ "$(adb devices)" != "List of devices attached" ]; then
+    echo "ADB available and device connected"
+    # Your command XYZ goes here
+    # XYZ
+else
+    echo "No ADB available or no device connected"
+fi
