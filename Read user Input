@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "Please enter your name: "
+read userName
+
+echo "Hello, $userName! How are you today?"
