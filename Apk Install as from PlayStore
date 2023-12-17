@@ -13,14 +13,14 @@ if [ -d "/data/local/tmp" ]; then
     print ..Initialising...
  else
    print Making Temporary Directory 
-    mkdir /data/local/tmp
+    mkdir -p /data/local/tmp
    print Done...
    print ..Initialising...
 fi
 
 
 
-if [ -f "$1" ]; then
+if [ "${1##*.}" = "apk" ]; then
     print ..Starting Process..
  else
     print 
@@ -41,6 +41,14 @@ fi
            rm -rf /data/local/tmp/*
            cp /$1 /data/local/tmp/base.apk
            print Done...
+
+print Confirming apk move 
+
+if [ -f "/data/local/tmp/base.apk" ]; then echo "..Starting Installing Process.."; else echo "Something went wrong. APK not found at /data/local/tmp/base.apk"; exit 1; fi
+
+
+
+
             print Installing.....
             pm install --user 0 -i "com.android.vending" -r "/data/local/tmp/base.apk"
             print Processed Successfully.
