@@ -1,3 +1,5 @@
+#!/system/bin/sh
+
 
 if [ -d "/data/media/0" ]; then
     INT="/data/media/0"
