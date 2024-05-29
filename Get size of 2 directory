@@ -11,17 +11,18 @@ fi
 
 # ---------------------------------------------------------------------#
 
-if ! { mkdir -p "/data/local/x" || install -d "/data/local/x"; }; then
+if ! { mkdir -p "/data/local/tmp/x" || install -d "/data/local/tmp/x"; }; then
     echo "Error 0"
     exit 1
 fi
 
 # ---------------------------------------------------------------------#
 
+TMP="/data/local/tmp/x"
 
-P1="$INT/B/X"
+P1="$INT/"
 
-P2="$INT/B/Y Z"
+P2="$INT/"
 
 
 # ---------------------------------------------------------------------#
@@ -43,13 +44,15 @@ fi
 # ---------------------------------------------------------------------#
 
 
-if [ -d "$DIR1" ] && [ -d "$DIR2" ]; then
+if [ "$DIR1" = "$TMP" ] && [ "$DIR2" = "$TMP" ]; then
+    echo "0 K"
+elif [ "$DIR1" != "$TMP" ] && [ "$DIR2" != "$TMP" ]; then
     du -hcs "$DIR1" "$DIR2" | grep total | cut -f1
-else
-    echo "Error 1"
+elif [ "$DIR1" = "$TMP" ] && [ "$DIR2" != "$TMP" ]; then
+    du -hcs "$DIR2" | grep total | cut -f1
+elif [ "$DIR2" = "$TMP" ] && [ "$DIR1" != "$TMP" ]; then
+    du -hcs "$DIR1" | grep total | cut -f1
 fi
-
-
 # ---------------------------------------------------------------------#
                       rm -rf /data/local/x
 # ---------------------------------------------------------------------#
