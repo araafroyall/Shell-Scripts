@@ -68,12 +68,7 @@ fi
 
 echo "Sucessfully Created Folder"
 
-
-
-
-
-
-
+echo " Module Installation Sucess"
 
 
 echo "Now you can complete other setup"
