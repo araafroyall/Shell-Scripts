@@ -1,10 +1,19 @@
-#!/bin/bash
+#!/system/bin/sh
+# This script is created by AraafRoyall
 
-# New description to be set
+if command -v sed > /dev/null 2>&1; then
+  echo "Updating Module Details..."
+else
+  echo "Unable to Update Module Details, Exiting..."
+exit 1
+fi
+
+#------------------------------------#
+
 NEW_DESCRIPTION="This is the new description of your module."
 
-# Use sed to replace the existing description with the new one
-sed -i "s/^description=.*/description=${NEW_DESCRIPTION}/" /data/adb/modules/cleanerlitepro/module.prop
+MDK="/data/adb/modules/cleanerlitepro"
 
-echo "The description in module.prop has been updated to:"
-grep "^description=" /data/adb/modules/cleanerlitepro/module.prop
+sed -i "s/^description=.*/description=${NEW_DESCRIPTION}/" $MDK/module.prop
+
+echo "Module info Updated."
